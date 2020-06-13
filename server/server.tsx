@@ -1,33 +1,37 @@
-import App from "../src/components/Test";
-import path from "path";
-import fs from "fs";
+import App from "../src/components/Index";
 import express from "express";
+import path from "path";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
+import { StaticRouter } from "react-router-dom";
 
 const PORT = 3000;
 const app = express();
-const router = express.Router();
 
-const serverRenderer = (req, res, next) => {
-  fs.readFile(path.resolve("./public/index.html"), "utf8", (err, data) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send("An error occurred");
-    }
-    return res.send(
-      data.replace(
-        '<div id="root"></div>',
-        `<div id="root">${ReactDOMServer.renderToString(<App />)}</div>`
-      )
-    );
-  });
-};
-router.use("^/$", serverRenderer);
+app.use(express.static(path.join(__dirname, "..", "public")));
 
-router.use(express.static(path.resolve(__dirname, "..", "public")));
+app.get("/*", (req, res) => {
+  const markup = ReactDOMServer.renderToString(
+    <StaticRouter location={req.url} context={{}}>
+      <App />
+    </StaticRouter>
+  );
 
-app.use(router);
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>SSR with RR</title>
+        <link rel="stylesheet" href="/main.css">
+        <script src="/bundle.js" defer></script>
+      </head>
+
+      <body>
+        <div id="app">${markup}</div>
+      </body>
+    </html>
+  `);
+});
 
 app.listen(PORT, () => {
   console.log(`SSR running on port ${PORT}`);
