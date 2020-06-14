@@ -6,6 +6,7 @@ import rootReducer from "./reducers";
 export default function configureStore(initialState) {
   const composeEnhancers =
     (typeof window !== "undefined" &&
+      // @ts-ignore
       window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
     compose;
   return process.env.NODE_ENV === "production"

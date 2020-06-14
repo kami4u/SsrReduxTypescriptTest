@@ -2,10 +2,9 @@ const webpack = require("webpack");
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-// process.env.NODE_ENV = "production";
+process.env.NODE_ENV = "production";
 
 module.exports = {
-  mode: "development",
   target: "web",
   devtool: "source-map", //To include map for the dev tools
   entry: "./src",

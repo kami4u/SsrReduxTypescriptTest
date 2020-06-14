@@ -28,6 +28,6 @@
     "allowJs": true /* Allow javascript files to be compiled. */,
     "esModuleInterop": true
   },
-  "exclude": ["dist", "**/*.spec.ts", "**/*.test.ts"],
+  "exclude": ["dist", "**/*.spec.ts", "**/*.test.ts", "**/*.test.tsx"],
   "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }

@@ -4,7 +4,7 @@
   "scripts": {
     "start": "run-p clean webpack start:api start:app",
     "start:app": "ts-node ./server",
-    "webpack": "webpack",
+    "webpack": "webpack --mode development",
     "prestart:api": "node tools/createMockDb.js",
     "start:api": "node tools/apiServer.js",
     "test": "jest --watchAll",
@@ -12,7 +12,7 @@
     "test:ci": "jest",
     "clean": "rimraf ./public && mkdir public",
     "prebuild": "run-p clean test:ci",
-    "build": "webpack --config webpack.config.prod.ts",
+    "build": "webpack",
     "postbuild": "run-p start:api start:app"
   },
   "jest": {
@@ -50,6 +50,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
+    "@types/react-test-renderer": "^16.9.2",
     "@types/redux-mock-store": "^1.0.2",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^3.5.3",
