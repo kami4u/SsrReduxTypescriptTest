@@ -1,4 +1,4 @@
-import App from "../src/components/Index";
+import App from "../src/components/App";
 import express from "express";
 import path from "path";
 import React from "react";

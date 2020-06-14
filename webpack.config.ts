@@ -8,7 +8,7 @@ module.exports = {
   mode: "development",
   target: "web",
   devtool: "source-map", //To include map for the dev tools
-  entry: "./src/App.tsx",
+  entry: "./src",
   output: {
     path: path.resolve(__dirname, "public"),
     publicPath: "/",

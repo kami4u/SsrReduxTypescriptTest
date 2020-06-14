@@ -13,7 +13,7 @@ import CoursePage from "./courses/CoursesPage";
 import ManageCoursePage from "./courses/ManageCoursePage";
 import configureStore from "../redux/configureStore";
 
-const Index = () => {
+const App = () => {
   return (
     <ReduxRrovider store={configureStore({})}>
       <div className="container-fluid">
@@ -32,4 +32,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default App;

@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Test from "./components/Index";
+import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.hydrate(
   <BrowserRouter>
-    <Test />
+    <App />
   </BrowserRouter>,
   document.getElementById("app")
 );
