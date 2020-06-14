@@ -17,12 +17,12 @@ import { beginApiCall, apiCallSuccess, apiCallError } from "./apiStatusAction";
 //   return { type: types.DELETE_COURSE_OPTIMISTIC, course };
 // }
 
-export const fetchCourses = () => async (dispatch) => {
+export const fetchCourses: any = () => async (dispatch) => {
   dispatch(beginApiCall());
   try {
     const courses = await getCourses();
     dispatch({ type: "GET_COURSES", payload: courses });
-    dispatch(apiCallSuccess());
+    return dispatch(apiCallSuccess());
   } catch (error) {
     dispatch(apiCallError());
     throw error;

@@ -12,10 +12,17 @@ describe("Async Actions", () => {
     fetchMock.restore();
   });
 
-  it("should load courses and dispatch success action", () => {
-    fetchMock.mock("*", { body: courses, headers: { "content-type": "application/json" } });
+  it("should load courses and dispatch success action", async () => {
+    fetchMock.mock("*", {
+      body: courses,
+      headers: { "content-type": "application/json" },
+    });
 
-    const expectedActions = [{ type: "BEGIN_API_CALL" }, { type: "GET_COURSES", payload: courses }, { type: "API_CALL_SUCCESS" }];
+    const expectedActions = [
+      { type: "BEGIN_API_CALL" },
+      { type: "GET_COURSES", payload: courses },
+      { type: "API_CALL_SUCCESS" },
+    ];
 
     const store = mockStore({ courses: [] });
     return store.dispatch(courseActions.fetchCourses()).then(() => {

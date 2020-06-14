@@ -18,7 +18,7 @@
     "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
     "noUnusedLocals": false /* Report errors on unused locals. */,
     "strict": true /* Enable all strict type-checking options. */,
-    "outDir": "public" /* Redirect output structure to the directory. */,
+    "outDir": "dist" /* Redirect output structure to the directory. */,
     "baseUrl": "./src/**" /* Base directory to resolve non-absolute module names. */,
     "typeRoots": [
       "./src/@types",
@@ -28,5 +28,6 @@
     "allowJs": true /* Allow javascript files to be compiled. */,
     "esModuleInterop": true
   },
-  "exclude": ["public", "**/*.spec.ts", "**/*.test.ts"]
+  "exclude": ["dist", "**/*.spec.ts", "**/*.test.ts"],
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }
